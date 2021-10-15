@@ -26,7 +26,8 @@ var client = new ClientBuilder()
             options.ClusterId = "deivanov-cluster";
         });
     })
-    .UseAzureStorageClustering(builder => builder.BindConfiguration("Clustering"))
+    //.UseAzureStorageClustering(builder => builder.BindConfiguration("Clustering"))
+    .UseLocalhostClustering()
     .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(IChannelGrain).Assembly).WithReferences())
     .AddSimpleMessageStreamProvider("chat")
     .Build();
